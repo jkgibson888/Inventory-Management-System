@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="350.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="890.0" />
+      <VBox prefHeight="350.0" prefWidth="825.0">
+         <children>
+            <Label text="Inventory Management System">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#d7d7d7" height="240.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="375.0">
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </Rectangle>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#d7d7d7" height="240.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="375.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextFlow fx:id="errorTextFlow" prefHeight="200.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="450.0" top="10.0" />
+                     </HBox.margin>
+                  </TextFlow>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onActionExit" text="Exit">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                     </effect>
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox prefHeight="310.0" prefWidth="830.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="350.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="230.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="37.0" text="Parts">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="partSearchTxt" onKeyTyped="#searchPartTxt" promptText="Search by Part ID or Number">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="-5.0" />
+                     </padding>
+                  </HBox>
+                  <TableView fx:id="partsTableView" prefHeight="200.0" prefWidth="398.0">
+                    <columns>
+                      <TableColumn fx:id="partsPartIdCol" prefWidth="55.0" text="Part ID" />
+                        <TableColumn fx:id="partsPartNameCol" prefWidth="75.0" text="Part Name" />
+                        <TableColumn fx:id="partsInventorylvlCol" prefWidth="100.0" text="Inventory Level" />
+                        <TableColumn fx:id="partsPriceCol" minWidth="7.0" prefWidth="117.0" text="Price/Cost per Unit" />
+                    </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onActionAddPartBtn" text="Add">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="130.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" layoutX="140.0" layoutY="15.0" mnemonicParsing="false" onAction="#onActionModifyPartBtn" text="Modify">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" layoutX="182.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionDeletePartBtn" text="Delete">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets left="30.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="420.0">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="230.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="74.0" text="Products">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="63.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="productSearchTxt" onKeyTyped="#searchProductsTxt" promptText="Search by Part ID or Number">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="-5.0" />
+                     </padding>
+                  </HBox>
+                  <TableView fx:id="productsTableView" prefHeight="200.0" prefWidth="398.0">
+                     <columns>
+                        <TableColumn fx:id="productsPartIdCol" prefWidth="68.0" text="Product ID" />
+                        <TableColumn fx:id="productsPartNameCol" prefWidth="70.0" text="Part Name" />
+                        <TableColumn fx:id="productsInventoryCol" prefWidth="92.0" text="Inventory Level" />
+                        <TableColumn fx:id="productsPriceCol" minWidth="7.0" prefWidth="117.0" text="Price/Cost per Unit" />
+                     </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onActionAddProductBtn" text="Add">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="130.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onActionModifyProductBtn" text="Modify">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onActionDeleteProductBtn" text="Delete">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <effect>
+                              <ColorAdjust brightness="-0.14" contrast="-0.05" hue="1.0" saturation="-0.13" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children></HBox>
+               </children>
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="65.0" top="80.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
